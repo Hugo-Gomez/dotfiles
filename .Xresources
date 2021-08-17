@@ -2,7 +2,7 @@
 !       urxvt
 ! ===================
 
-*background:   [97]#282a36
+*background:   [90]#282a36
 *foreground:   #eff0eb
 *cursorColor:  #9aedfe
 
@@ -23,16 +23,16 @@
 *color7:      #eff0eb
 *color15:     #eff0eb
 
-URxvt*scrollBar:	    false
-URxvt*letterSpace:  	-1
-URxvt.internalBorder: 10
-URxvt*font: 		      xft:SFMono:regular:size=10
-URxvt*boldFont:		    xft:SFMono:bold:size=10
-URxvt*cursorBlink:    true
-URxvt.iso14755:		    false
-URxvt*utf8:			      true
-URxvt.keysym.C-equal:      resize-font:bigger
-URxvt.keysym.C-parenright: resize-font:smaller
+URxvt*scrollBar:		false
+URxvt*letterSpace:		-1
+URxvt.internalBorder:		10
+URxvt*font:			xft:SFMono:regular:size=10
+URxvt*boldFont:			xft:SFMono:bold:size=10
+URxvt*cursorBlink:		true
+URxvt.iso14755:			false
+URxvt*utf8:			true
+URxvt.keysym.C-equal:		resize-font:bigger
+URxvt.keysym.C-parenright:	resize-font:smaller
 
 ! ===================
 !       rofi

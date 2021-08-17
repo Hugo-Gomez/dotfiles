@@ -11,23 +11,24 @@ general {
         interval = 5
 }
 
-order += "ipv6"
+order += "volume master"
 order += "disk /"
-order += "run_watch DHCP"
-order += "run_watch VPN"
-order += "wireless wlan0"
-order += "ethernet eth0"
-order += "battery 0"
+#order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "memory"
+order += "wireless wlp8s0"
+order += "ethernet enp3s0"
+#order += "battery 0"
 order += "tztime local"
 
-wireless wlan0 {
+wireless wlp8s0 {
         format_up = "W: (%quality at %essid) %ip"
         format_down = "W: down"
 }
 
-ethernet eth0 {
+ethernet enp3s0 {
         # if you use %speed, i3status requires root privileges
-        format_up = "E: %ip (%speed)"
+        format_up = "E: %ip" 
         format_down = "E: down"
 }
 
@@ -35,12 +36,31 @@ battery 0 {
         format = "%status %percentage %remaining"
 }
 
-run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
+# Need additional package to work
+cpu_temperature 0 {
+	format = "CPU: %degrees °C"
+	max_threshold = 42
+	format_above_threshold = "OMG IT'S ON FIRE: %degrees °C"
 }
 
-run_watch VPN {
-        pidfile = "/var/run/vpnc/pid"
+cpu_usage {
+	format = "CPU usage: %usage"
+	max_threshold = 75
+	format_above_threshold = "Хардбасс too loud: %usage"
+}
+
+memory {
+	format = "RAM usage: %used / %total"
+	threshold_degraded = 10%
+	format_degraded = "БЛЯТ /!\ : %used / %total"
+}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
 
 tztime local {
@@ -48,5 +68,5 @@ tztime local {
 }
 
 disk "/" {
-        format = "%avail"
+        format = "Free space: %avail"
 }

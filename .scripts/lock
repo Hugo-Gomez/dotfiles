@@ -1,0 +1,2 @@
+#! /bin/bash
+i3lock -efti $HOME/Pictures/lock_wallpaper.png

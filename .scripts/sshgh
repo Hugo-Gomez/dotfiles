@@ -1,0 +1,8 @@
+#! /bin/bash
+
+eval "$(ssh-agent -s)"
+if [ -f $HOME/.ssh/id_rsa ]; then
+	ssh-add $HOME/.ssh/id_rsa
+else
+	echo "SSH key not found."
+fi
